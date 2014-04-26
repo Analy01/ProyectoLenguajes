@@ -1,10 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyectofinal;
 
-/public class AgregarEstudiante extends javax.swing.JFrame {
+public class AgregarEstudiante extends javax.swing.JFrame {
   ListaRegistroEstudiante RegEst = new  ListaRegistroEstudiante() ;
     
    Estudiante EstudianteActual = new Estudiante();
@@ -41,6 +37,104 @@ package proyectofinal;
         jLabel3.setText("Correo Electrónico");
         
         BotonOK.setText("OK");
+        
+        BotonOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonOKActionPerformed(evt);
+            }
+        });
+        NombresTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NombresTxtActionPerformed(evt);
+            }
+        });
+        BotonImprimir.setText("Imprimir");
+        
+        BotonImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonImprimirActionPerformed(evt);
+            }
+        });
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(NombresTxt)
+                    .addComponent(EmailTxt)
+                    .addComponent(CedulaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(105, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addComponent(BotonOK)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
+                .addComponent(BotonImprimir)
+                .addGap(58, 58, 58))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(CedulaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(NombresTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(61, 61, 61)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(EmailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)))
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BotonOK)
+                    .addComponent(BotonImprimir))
+                .addGap(25, 25, 25))
+        );
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+    private void NombresTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombresTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NombresTxtActionPerformed
+    private void BotonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonOKActionPerformed
+        EstudianteActual.setNombres(NombresTxt.getText());
+        EstudianteActual.setCedula(Long.parseLong(CedulaTxt.getText()));
+        EstudianteActual.setEmail(EmailTxt.getText());
+       //RegEst.getListadoEstudiantes().IncluirEstudiante(EstudianteActual);
+       RegEst.IncluirEstudiante(EstudianteActual);
+       
+    }//GEN-LAST:event_BotonOKActionPerformed
+    private void BotonImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonImprimirActionPerformed
+        RegEst.imprimir();
+    }//GEN-LAST:event_BotonImprimirActionPerformed
+    /**
+    * @param args the command line arguments
+    */
+    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AgregarEstudiante().setVisible(true);
+            }
+        });
     }
-    
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonImprimir;
+    private javax.swing.JButton BotonOK;
+    private javax.swing.JTextField CedulaTxt;
+    private javax.swing.JTextField EmailTxt;
+    private javax.swing.JTextField NombresTxt;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    // End of variables declaration//GEN-END:variables
 }
